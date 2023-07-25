@@ -1,68 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Héritage</title>
 </head>
-
 <body>
     <?php
-
-    class Animal
+    class animal
     {
-        protected $animalType;
-
-        public function __construct($animalType)
+        protected $animal;
+        public function __construct($animal)
         {
-            $this->animalType = $animalType;
+            $this->animal = $animal;
         }
-
         public function info()
         {
-            echo "Je suis un " . $this->animalType . ".<br>";
+            echo "Je suis un " . $this->animal . ".<br>";
         }
     }
-
-    class Mammifere extends Animal
+    class mammifere extends animal
     {
-        protected $mammalType;
-
-        public function __construct($animalType, $mammalType)
+        protected $mammifere;
+        public function __construct($animal, $mammifere)
         {
-            parent::__construct($animalType);
-            $this->mammalType = $mammalType;
+            parent::__construct($animal);
+            $this->mammifere = $mammifere;
         }
-
         public function infoPlus()
         {
-            echo "Je suis un " . $this->mammalType . ".<br>";
+            echo "Je suis un " . $this->mammifere . ".<br>";
         }
     }
-
-    class Chien extends Mammifere
+    class chien extends mammifere
     {
-        protected $breed;
-
-        public function __construct($animalType, $mammalType, $breed)
+        protected $chien;
+        public function __construct($animal, $mammifere, $chien)
         {
-            parent::__construct($animalType, $mammalType);
-            $this->breed = $breed;
+            parent::__construct($animal, $mammifere);
+            $this->chien = $chien;
         }
-
         public function crie()
         {
             echo "J'aboie.<br>";
         }
     }
-
     $monChien = new Chien("animal", "mammifère", "rottweiler");
     $monChien->info();
     $monChien->infoPlus();
     $monChien->crie();
     ?>
-
 </body>
-
 </html>
